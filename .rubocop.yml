@@ -1,4 +1,8 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.6.3
   Exclude:
     - 'bin/*'
@@ -14,7 +18,7 @@ Metrics/LineLength:
 Metrics/ClassLength:
   Max: 180
 Metrics/BlockLength:
-  IgnoredMethods: []
+  IgnoredMethods: ['describe']
 Metrics/MethodLength:
   Max: 15
 Layout/MultilineMethodCallIndentation:
@@ -118,3 +122,5 @@ Style/RedundantArgument:
   Enabled: true
 Style/SwapValues:
   Enabled: true
+RSpec/NestedGroups:
+  Enabled: false
