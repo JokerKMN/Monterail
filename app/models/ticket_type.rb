@@ -1,6 +1,7 @@
 class TicketType < ApplicationRecord
   before_create :assign_quantity_left
   belongs_to :event
+  has_many :tickets, dependent: :destroy
 
   enum selling_option: { event: 0, all_together: 1, avoid_one: 2 }
 
