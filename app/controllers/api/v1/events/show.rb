@@ -9,10 +9,7 @@ module API
         get do
           event_id = declared(params)[:id]
           event = Event.find_by(id: event_id)
-          status 404
-
           if event
-            status 200
             present(event, with: ::EventEntity)
           else
             status 404

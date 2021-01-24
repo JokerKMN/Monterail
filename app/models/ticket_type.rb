@@ -5,6 +5,8 @@ class TicketType < ApplicationRecord
 
   enum selling_option: { event: 0, all_together: 1, avoid_one: 2 }
 
+  scope :available, -> { where('quantity_left > ?', 0) }
+
   private
 
   def assign_quantity_left

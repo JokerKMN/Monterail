@@ -15,7 +15,7 @@ RSpec.describe API::V1::Events::Show, type: :request do
       context 'when event does not exist' do
         let(:event_id) { 0 }
 
-        it { expect(get_event.status).to eq(404) }
+        it { expect(get_event).to have_http_status(:not_found) }
         it { expect(response_body['message']).to eq("Couldn't find Event with id 0.") }
       end
 
@@ -23,7 +23,7 @@ RSpec.describe API::V1::Events::Show, type: :request do
         let(:event) { create(:event) }
         let(:event_id) { event.id }
 
-        it { expect(get_event.status).to eq(200) }
+        it { expect(get_event).to have_http_status(:ok) }
 
         it 'returns information about event' do
           expect(response_body.keys).to eq(%w[name date time])

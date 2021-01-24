@@ -7,6 +7,10 @@ module API
       namespace 'events' do
         route_param :id do
           mount API::V1::Events::Show
+
+          namespace 'tickets' do
+            mount API::V1::Events::Tickets::Available
+          end
         end
       end
     end
