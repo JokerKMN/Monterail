@@ -12,13 +12,10 @@ module API
           post '/payment/:reservation_id' do
             reservation = Reservation.find_by(id: declared(params)[:reservation_id])
 
-            if reservation
-              paid_reservation = ::Events::Tickets::PaymentService.new.call(reservation)
-              present(paid_reservation.success, with: ::ReservationEntity)
-            else
-              status 422
-              present(:message, 'There is no reservation with provided id.')
-            end
+            return not_found unless reservation
+
+            paid_reservation = ::Events::Tickets::PaymentService.new.call(reservation)
+            present(paid_reservation.success, with: ::ReservationEntity)
           end
         end
       end

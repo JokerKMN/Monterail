@@ -28,7 +28,7 @@ RSpec.describe API::V1::Events::Tickets::ReservationInfo, type: :request do
     context 'with invalid params types' do
       let(:id) { 0 }
 
-      it { expect(reservation_info).to have_http_status(:unprocessable_entity) }
+      it { expect(reservation_info).to have_http_status(:not_found) }
     end
   end
 end

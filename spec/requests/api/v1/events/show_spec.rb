@@ -18,7 +18,7 @@ RSpec.describe API::V1::Events::Show, type: :request do
         let(:event_id) { 0 }
 
         it { expect(get_event).to have_http_status(:not_found) }
-        it { expect(response_body['message']).to eq("Couldn't find Event with id 0.") }
+        it { expect(response_body['message']).to eq('Requested entity not found') }
       end
 
       context 'when event exists' do

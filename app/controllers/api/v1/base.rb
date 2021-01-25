@@ -21,6 +21,13 @@ module API
           mount API::V1::Events::Tickets::Payment
         end
       end
+
+      helpers do
+        def not_found
+          status 404
+          present(:message, 'Requested entity not found')
+        end
+      end
     end
   end
 end

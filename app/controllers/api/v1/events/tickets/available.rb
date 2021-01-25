@@ -12,13 +12,11 @@ module API
           get '/available' do
             event_id = declared(params)[:id]
             event = Event.find_by(id: event_id)
-            if event
-              ticket_types = event.ticket_types.available
-              present(:tickets, ticket_types, with: ::TicketTypeEntity)
-            else
-              status 404
-              present(:message, "Couldn't find Event with id #{event_id}.")
-            end
+
+            return not_found unless event
+
+            ticket_types = event.ticket_types.available
+            present(:tickets, ticket_types, with: ::TicketTypeEntity)
           end
         end
       end

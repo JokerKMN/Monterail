@@ -12,12 +12,9 @@ module API
           get '/reservation/:id' do
             reservation = Reservation.find_by(id: declared(params)[:id])
 
-            if reservation
-              present(reservation, with: ::ReservationEntity)
-            else
-              status 422
-              present(:message, 'There is no reservation with provided id.')
-            end
+            return not_found unless reservation
+
+            present(reservation, with: ::ReservationEntity)
           end
         end
       end

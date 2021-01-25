@@ -34,7 +34,7 @@ RSpec.describe API::V1::Events::Tickets::Payment, type: :request do
     context 'when reservation with provided id does not exist' do
       let(:reservation_id) { 0 }
 
-      it { expect(pay_for_tickets).to have_http_status(:unprocessable_entity) }
+      it { expect(pay_for_tickets).to have_http_status(:not_found) }
     end
   end
 end

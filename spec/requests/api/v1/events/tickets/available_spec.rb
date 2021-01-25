@@ -48,7 +48,7 @@ RSpec.describe API::V1::Events::Tickets::Available, type: :request do
       it { expect(get_available_tickets).to have_http_status(:not_found) }
 
       it 'returns error message' do
-        expect(response_body['message']).to eq("Couldn't find Event with id 0.")
+        expect(response_body['message']).to eq('Requested entity not found')
       end
     end
   end
