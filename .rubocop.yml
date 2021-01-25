@@ -67,7 +67,7 @@ Style/RedundantRegexpEscape:
 Style/SlicingWithRange:
   Enabled: true
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
 Lint/DuplicateElsifCondition:
   Enabled: true
 Style/AccessorGrouping:

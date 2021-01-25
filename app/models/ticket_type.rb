@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TicketType < ApplicationRecord
   before_create :assign_quantity_left
   belongs_to :event

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Events::Tickets::ReserveService do
@@ -24,6 +26,10 @@ RSpec.describe Events::Tickets::ReserveService do
 
           it 'creates reservation' do
             expect { reserve_tickets }.to change { Reservation.all.size }.by(1)
+          end
+
+          it 'changes ticket_type quantity_left' do
+            expect { reserve_tickets }.to change { ticket_type.reload.quantity_left }.by(-10)
           end
 
           it 'returns reservation_id' do

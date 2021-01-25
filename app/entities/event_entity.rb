@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventEntity < BaseEntity
   expose :name
   expose :date do |_|
