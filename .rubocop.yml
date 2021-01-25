@@ -18,7 +18,7 @@ Metrics/LineLength:
 Metrics/ClassLength:
   Max: 180
 Metrics/BlockLength:
-  IgnoredMethods: ['describe']
+  IgnoredMethods: ['describe', 'context']
 Metrics/MethodLength:
   Max: 15
 Layout/MultilineMethodCallIndentation:

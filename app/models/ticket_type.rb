@@ -3,7 +3,7 @@ class TicketType < ApplicationRecord
   belongs_to :event
   has_many :tickets, dependent: :destroy
 
-  enum selling_option: { event: 0, all_together: 1, avoid_one: 2 }
+  enum selling_option: { even: 0, all_together: 1, avoid_one: 2 }
 
   scope :available, -> { where('quantity_left > ?', 0) }
 
