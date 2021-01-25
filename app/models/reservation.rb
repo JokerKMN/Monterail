@@ -7,6 +7,6 @@ class Reservation < ApplicationRecord
   enum status: { reserved: 0, paid: 1, canceled: 2 }
 
   def total_price
-    tickets.map(:price).sum
+    tickets.map(&:ticket_type).map(&:price).sum.to_f
   end
 end
