@@ -15,6 +15,7 @@ module API
 
         namespace 'tickets' do
           mount API::V1::Events::Tickets::Reserve
+          mount API::V1::Events::Tickets::ReservationInfo
         end
       end
     end
